@@ -1,0 +1,309 @@
+/* Khởi tạo biến màu sắc giống hệt phong cách Serafin Castillo */
+:root {
+    --bg-color: #F4F2EE;       /* Màu be kem sang trọng làm nền chính */
+    --text-color: #101010;     /* Màu đen mờ dịu mắt cho typography */
+    --accent-details: #E3E3E3; 
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Manrope', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* HEADER */
+.site-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 1.5rem 1.5rem 1.5rem;
+    background-color: var(--bg-color);
+}
+
+.logo {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 1.2rem;
+    transition: opacity 0.3s;
+}
+
+.main-nav a:hover {
+    opacity: 0.6;
+}
+
+/* HERO SECTION */
+.hero {
+    max-width: 800px;
+    margin: 6rem auto;
+    text-align: center;
+    padding: 0 1.5rem;
+}
+
+.hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    text-transform: uppercase;
+    font-weight: 300;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+}
+
+.hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    opacity: 0.8;
+}
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #3f3f3f;
+}
+
+.btn-link {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-block;
+    margin-top: 1rem;
+}
+
+/* ASYMMETRIC GALLERY (Lưới tạp chí) */
+.gallery-section {
+    padding: 2rem 4vw;
+}
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2rem;
+}
+
+.grid-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%); /* Tạo hiệu ứng hơi hoài cổ nhẹ */
+    transition: transform 0.5s ease;
+}
+
+.grid-item:hover img {
+    transform: scale(1.02);
+}
+
+/* Định hình vị trí bất đối xứng */
+.item-v { grid-column: span 4; height: 600px; }
+.item-h { grid-column: span 8; height: 400px; margin-top: 5rem; }
+.item-sq { grid-column: span 5; height: 450px; }
+.editorial-grid .item-v:last-child { grid-column: span 7; height: 550px; margin-top: -3rem; }
+
+/* BIO SECTION */
+.bio-section {
+    padding: 8rem 4vw;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.bio-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.bio-text {
+    flex: 1;
+}
+
+.bio-text h3 {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+}
+
+.bio-text h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+}
+
+.bio-text p {
+    font-weight: 300;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.bio-image {
+    flex: 1;
+    height: 500px;
+}
+
+.bio-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TESTIMONIALS SLIDER */
+.testimonials-section {
+    background-color: #ffffff; /* Tạo mảng khối màu tương phản nhẹ */
+    padding: 6rem 1.5rem;
+    text-align: center;
+}
+
+.section-tag {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    opacity: 0.5;
+    margin-bottom: 2rem;
+}
+
+.slider-container {
+    max-width: 700px;
+    margin: 0 auto;
+    position: relative;
+    min-height: 200px;
+}
+
+.slide {
+    display: none;
+}
+
+.slide.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.slide h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+}
+
+.slide p {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.2rem;
+    opacity: 0.85;
+}
+
+.slider-controls {
+    margin-top: 2rem;
+}
+
+.control-btn {
+    cursor: pointer;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 0 1rem;
+    opacity: 0.6;
+}
+
+.control-btn:hover {
+    opacity: 1;
+}
+
+/* CALL TO ACTION */
+.cta-section {
+    background: linear-gradient(rgba(16,16,16,0.3), rgba(16,16,16,0.3)), url('https://images-pw.pixieset.com/site/NVAO0m/6bl9a1/SerafinCastilloTheWed-62-35fe72ff-1500.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 10rem 1.5rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.cta-content {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.cta-content h2 {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+}
+
+.cta-content p {
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #101010;
+}
+
+.btn-white:hover {
+    background-color: #e2e2e2;
+}
+
+/* FOOTER */
+.site-footer {
+    padding: 3rem 1.5rem;
+    text-align: center;
+    font-size: 0.75rem;
+    opacity: 0.5;
+    letter-spacing: 0.05em;
+}
+
+/* ANIMATION */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RESPONSIVE (Màn hình điện thoại di động) */
+@media (max-width: 768px) {
+    .editorial-grid { display: block; }
+    .grid-item { margin-bottom: 2rem; height: 350px !important; }
+    .bio-container { flex-direction: column; gap: 2rem; }
+    .bio-image { height: 350px; width: 100%; }
+    .hero { margin: 3rem auto; }
+}
